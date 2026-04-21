@@ -1,28 +1,29 @@
-import { Download } from "lucide-react";
 import React from "react";
 
 const Card = ({ apiData, download }) => {
   return (
-    <div className="w-full grid grid-cols-4 gap-5 place-items-center">
-      {apiData.map((item, index) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {apiData.map((item) => (
         <div
-          key={index}
-          className="w-70 h-70 rounded-xl hover:scale-105 duration-400 transition-all border overflow-hidden p-2"
+          key={item.id}
+          className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 duration-300"
         >
-          <div className="w-full h-50">
-            <img
-              src={item?.src?.landscape}
-              alt=""
-              className="w-full h-full rounded"
-            />
-          </div>
-          <div className="flex justify-between mt-4">
-            <p className="text-sm">name: {item?.photographer}</p>
+          <img
+            src={item.src.medium}
+            alt="img"
+            className="w-full h-40 sm:h-48 md:h-52 object-cover"
+          />
+
+          <div className="p-3 flex flex-col gap-2">
+            <p className="text-xs sm:text-sm font-semibold">
+              {item.photographer}
+            </p>
+
             <button
-              onClick={() => download(item?.src?.medium)}
-              className="px-4 py-1 rounded-2xl active:scale-90 duration-400  text-indigo-700"
+              onClick={() => download(item.src.original)}
+              className="bg-blue-500 text-white py-2 rounded-lg text-xs sm:text-sm"
             >
-              <Download />
+              Download
             </button>
           </div>
         </div>

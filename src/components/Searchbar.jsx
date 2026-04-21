@@ -4,19 +4,20 @@ const Searchbar = ({ handleSubmit, setSearch }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center justify-center"
+      className="flex flex-col md:flex-row gap-3 justify-center items-center"
     >
       <input
         type="text"
-        placeholder="Search value"
-        className="outline-0 border-2 border-blue-600 px-10 py-1 rounded-l"
+        placeholder="Search images..."
         onChange={(e) => setSearch(e.target.value)}
+        className="border w-full md:w-1/2 px-4 py-2 rounded-lg outline-none"
       />
+
       <button
         type="submit"
-        className="bg-linear-to-t from-sky-500 to-indigo-500 px-5 py-1.5 text-white rounded-r active:scale-80 duration-300 transition hover:scale-105"
+        className="bg-blue-500 text-white px-6 py-2 rounded-lg w-full md:w-auto"
       >
-        search
+        Search
       </button>
     </form>
   );
